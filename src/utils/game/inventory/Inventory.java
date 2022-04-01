@@ -4,16 +4,29 @@ import utils.game.items.Item;
 
 public class Inventory {
 
-    public static Item[] items;
+    public Item[] items;
+    // Use this array to add more attributes
+    public Object[] attribs;
 
-    public Inventory(int length)
+    public Inventory(int length, Object[] inattribs)
     {
-        items = new Item[length];
+        this.items = new Item[length];
+        this.attribs = inattribs;
     }
 
     public void swapItem(int pos, Item item)
     {
         items[pos] = item;
+    }
+
+    public String getItemName(int pos)
+    {
+        return items[pos].name;
+    }
+
+    public String getItemID(int pos)
+    {
+        return Integer.toString(items[pos].id);
     }
 
     public String getInventoryNames()
@@ -29,7 +42,7 @@ public class Inventory {
         return out;
     }
 
-    public String getInventoryIds()
+    public String getInventoryIDs()
     {
         String out = "";
         int i = 0;
@@ -41,4 +54,6 @@ public class Inventory {
         }
         return out;
     }
+
+
 }
